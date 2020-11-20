@@ -63,7 +63,7 @@ public class BankAccount {
 		case 3:
 			obj.getBalance(currentBalance);
 		}
-		sc.close();
+		sc.close(); 
 
 	}
 
