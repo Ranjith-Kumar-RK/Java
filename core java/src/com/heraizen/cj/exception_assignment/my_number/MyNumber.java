@@ -1,4 +1,4 @@
-package com.heraizen.cj.exception_assignment;
+package com.heraizen.cj.exception_assignment.my_number;
 
 import java.util.Scanner;
 
