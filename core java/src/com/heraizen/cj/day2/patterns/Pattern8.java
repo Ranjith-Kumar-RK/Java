@@ -9,18 +9,18 @@ public class Pattern8 {
 
 	public static void main(String[] args) {
 
-		int i, j;
-		int k;
-		k = 1;
-		for (i = 1; i <= 5; i++) {
-			for (j = 1; j <= 5; j++) {
-				System.out.print(k + " ");
-				k++;
-				if (k > 5) {
+		int k = 1;
+
+		for (int i = 0; i < 5; i++) {
+			for (int j = 0; j < 5; j++) {
+				if (k == 6) {
 					k = 1;
 				}
+				System.out.print(k + " ");
+				k++;
 			}
-			System.out.println(k);
+			k--;
+			System.out.println();
 		}
 
 	}
