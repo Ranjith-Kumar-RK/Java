@@ -1,2 +1,0 @@
-# java
-server side training
