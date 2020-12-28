@@ -1,0 +1,59 @@
+[
+    {
+        "usn": "17EC98",
+        "name": "Ranjith Kumar",
+        "semester": 8,
+        "subjects": [
+            {
+                "subName": "Oops",
+                "score": 75,
+                "passScore": 50,
+                "result": "PASS"
+            },
+            {
+                "subName": "Maths",
+                "score": 80,
+                "passScore": 50,
+                "result": "PASS"
+            }
+        ]
+    },
+    {
+        "usn": "17MT1005",
+        "name": "Mano",
+        "semester": 8,
+        "subjects": [
+            {
+                "subName": "Oops",
+                "score": 48,
+                "passScore": 50,
+                "result": "FAIL"
+            },
+            {
+                "subName": "Maths",
+                "score": 70,
+                "passScore": 50,
+                "result": "PASS"
+            }
+        ]
+    },
+    {
+        "usn": "17ME723",
+        "name": "Vishnu",
+        "semester": 8,
+        "subjects": [
+            {
+                "subName": "Oops",
+                "score": 90,
+                "passScore": 50,
+                "result": "PASS"
+            },
+            {
+                "subName": "Maths",
+                "score": 75,
+                "passScore": 50,
+                "result": "PASS"
+            }
+        ]
+    }
+]
