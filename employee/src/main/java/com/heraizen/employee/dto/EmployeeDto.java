@@ -1,5 +1,7 @@
 package com.heraizen.employee.dto;
 
+import com.heraizen.employee.domain.Address;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -15,6 +17,9 @@ public class EmployeeDto {
 	private String ename;
 	private String email;
 	private String mobile;
+	private String dob;
+	private Address address;
+	private String dateofjoin;
 	private String qualification;
 
 }

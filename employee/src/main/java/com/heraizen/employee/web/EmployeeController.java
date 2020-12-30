@@ -6,12 +6,12 @@ import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
+import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.repository.query.Param;
 import org.springframework.http.MediaType;
 
 import com.heraizen.employee.domain.Employee;
@@ -48,8 +48,8 @@ public class EmployeeController {
 		empServ.deleteById(id);
 	}
 
-	@POST
-	@Path(value = "/updateEmployee")
+	@PUT
+	@Path(value = "/updateemployee")
 	@Produces("application/json")
 	@Consumes("application/json")
 	public EmployeeDto updateEmployee(EmployeeDto employeeDTO) {
@@ -64,9 +64,10 @@ public class EmployeeController {
 	}
 
 	@GET
-	@Path(value = "/getEmployeeById/{id}")
+	@Path(value = "/getemployeebyid/{id}")
 	@Produces(value = MediaType.APPLICATION_JSON_VALUE)
 	public EmployeeDto getEmployeeById(@PathParam("id") String id) {
 		return empServ.getEmployeeById(id);
 	}
+	
 }

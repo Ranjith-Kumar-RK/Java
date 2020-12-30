@@ -30,7 +30,7 @@ public class EmployeeServImpl implements EmployeeServ {
 	private ModelMapper modelMapper;
 
 	@Autowired
-	private MongoOperations monogoOperations;
+	private MongoOperations mongoOperations;
 
 	@Override
 	public EmployeeDto addEmployee(EmployeeDto employeeDto) {
@@ -58,7 +58,7 @@ public class EmployeeServImpl implements EmployeeServ {
 	public List<Employee> search(String str) {
 		Query query = new Query();
 		query.addCriteria(Criteria.where("ename").is(str));
-		List<Employee> emp = monogoOperations.find(query, Employee.class);
+		List<Employee> emp = mongoOperations.find(query, Employee.class);
 		return emp;
 	}
 
@@ -71,7 +71,7 @@ public class EmployeeServImpl implements EmployeeServ {
 		update.set("mobile", employeeDTO.getMobile());
 		update.set("qualification", employeeDTO.getQualification());
 		updateQuery.addCriteria(Criteria.where("empno").is(employeeDTO.getEmpno()));
-		monogoOperations.updateFirst(updateQuery, update, Employee.class);
+		mongoOperations.updateFirst(updateQuery, update, Employee.class);
 		return employeeDTO;
 	}
 
