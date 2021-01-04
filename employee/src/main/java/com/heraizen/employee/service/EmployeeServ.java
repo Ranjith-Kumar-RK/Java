@@ -18,5 +18,7 @@ public interface EmployeeServ {
 	public EmployeeDto updateEmployee(EmployeeDto EmployeeDto);
 
 	public EmployeeDto getEmployeeById(String id);
+	
+	public boolean deleteByEmpno(long empno);
 
 }

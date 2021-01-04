@@ -24,6 +24,14 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-data-mongodb'
 	testImplementation 'de.flapdoodle.embed:de.flapdoodle.embed.mongo'
 	compile group: 'org.modelmapper', name: 'modelmapper', version: '2.3.9'
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	implementation 'org.springframework.boot:spring-boot-starter-security'
+	implementation 'org.modelmapper:modelmapper:2.3.0'
+	implementation 'org.springframework.boot:spring-boot-starter-actuator'
+	testImplementation 'org.springframework.security:spring-security-test'
+	compile 'io.jsonwebtoken:jjwt-jackson:0.11.2'
+    runtime group: 'io.jsonwebtoken', name: 'jjwt-impl', version: '0.11.2'
+    compile group: 'javax.xml.bind', name: 'jaxb-api'
 }
 
 test {

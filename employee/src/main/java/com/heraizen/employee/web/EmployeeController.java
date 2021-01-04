@@ -13,35 +13,47 @@ import javax.ws.rs.Produces;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
+import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import com.heraizen.employee.domain.Employee;
 import com.heraizen.employee.dto.EmployeeDto;
 import com.heraizen.employee.service.EmployeeServ;
 
-@Path("/api/emp/")
+@RequestMapping("/api/emp/")
+@RestController
+@CrossOrigin(origins="*")
 public class EmployeeController {
 
 	@Autowired
 	private EmployeeServ empServ;
 
-	@POST
-	@Path(value = "/addemployee")
-	@Produces(value = MediaType.APPLICATION_JSON_VALUE)
-	@Consumes(value = MediaType.APPLICATION_JSON_VALUE)
+//	@POST
+//	@Path(value = "/addemployee")
+//	@Produces(value = MediaType.APPLICATION_JSON_VALUE)
+//	@Consumes(value = MediaType.APPLICATION_JSON_VALUE)
+	@PostMapping("addemployee")
 	public EmployeeDto addEmployee(EmployeeDto employeeDTO) {
 		return empServ.addEmployee(employeeDTO);
 
 	}
 
-	@GET
-	@Path(value = "/showemployees")
-	@Produces(value = MediaType.APPLICATION_JSON_VALUE)
-	@Consumes(value = MediaType.APPLICATION_JSON_VALUE)
+//	@GET
+//	@Path(value = "/showemployees")
+//	@Produces(value = MediaType.APPLICATION_JSON_VALUE)
+//	@Consumes(value = MediaType.APPLICATION_JSON_VALUE)
+	@GetMapping("showemployee")
 	public List<EmployeeDto> getAllEmployees() {
 		return empServ.getAllEmployees();
 	}
 
 	@DELETE
+	@PreAuthorize(value = "hasRoles('ADMIN')")
 	@Path(value = "/deletebyid/{id}")
 	@Produces(value = MediaType.APPLICATION_JSON_VALUE)
 	public void deleteById(@PathParam("id") String id) {
@@ -70,4 +82,16 @@ public class EmployeeController {
 		return empServ.getEmployeeById(id);
 	}
 	
+	@DELETE
+	@Path("/deletebyempno/{empno}")
+	@Produces(value = MediaType.APPLICATION_JSON_VALUE)
+	public String deleteByEmployeeNumber(@PathParam("empno") long empno) {
+		if(empServ.deleteByEmpno(empno)) {
+			return "delete Successfully";
+		}
+		else {
+			return "empno not found";
+		}
+	}
+
 }

@@ -1,5 +1,6 @@
 package com.heraizen.employee.domain;
 
+
 import javax.persistence.Id;
 
 import lombok.AllArgsConstructor;
@@ -15,12 +16,16 @@ public class Employee {
 
 	@Id
 	private String id;
-	private int empno;
+	private long empno;
 	private String ename;
 	private String email;
 	private String mobile;
 	private String dob;
-	private Address address;
+	private String street;
+	private String city;
+	private String state;
+	private String country;
+	private String pincode;
 	private String dateofjoin;
 	private String qualification;
 

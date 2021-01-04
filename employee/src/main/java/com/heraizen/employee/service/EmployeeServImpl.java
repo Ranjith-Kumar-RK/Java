@@ -85,4 +85,12 @@ public class EmployeeServImpl implements EmployeeServ {
 		return employeeRepo.findById(id);
 	}
 
+	@Override
+	public boolean deleteByEmpno(long empno) {
+		Query query = new Query();
+		query.addCriteria(Criteria.where("empno").is(empno));
+		mongoOperations.findAllAndRemove(query, Employee.class);
+		return true;
+	}
+
 }
